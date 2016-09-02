@@ -1,16 +1,16 @@
-var Botkit = require('botkit')
+var Botkit = require('botkit');
 
-var token = process.env.SLACK_TOKEN
+var token = process.env.SLACK_TOKEN;
 
 var controller = Botkit.slackbot({
   // reconnect to Slack RTM when connection goes bad
   retry: Infinity,
   debug: true
-})
+});
 
-const Slapp = require('slapp')
-const ConvoStore = require('slapp-convo-beepboop')
-const BeepBoopContext = require('slapp-context-beepboop')
+const Slapp = require('slapp');
+const ConvoStore = require('slapp-convo-beepboop');
+const BeepBoopContext = require('slapp-context-beepboop');
 
 var slapp = Slapp({
   verify_token: process.env.SLACK_VERIFY_TOKEN,
@@ -18,17 +18,17 @@ var slapp = Slapp({
   context: BeepBoopContext(),
   log: true,
   colors: true
-})
+});
 
 slapp.command('/inorout', /^in/, (msg) => {
   // `respond` is used for actions or commands and uses the `response_url` provided by the
   // incoming request from Slack
   msg.respond(`Glad you are in ${match}!`)
-})
+});
 
 slapp.command('/afk', '', (msg) => {
   msg.respond(`Away From Keyboard`)
-})
+});
 
 // // Assume single team mode if we have a SLACK_TOKEN
 // if (token) {
