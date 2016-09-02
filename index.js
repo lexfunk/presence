@@ -82,8 +82,8 @@ controller.on('slash_command', function (slashCommand, message) {
             // The rules are simple: If there is no text following the command, treat it as though they had requested "help"
             // Otherwise just echo back to them what they sent us.
 
-            // but first, let's make sure the token matches!
-            if (message.token !== process.env.VERIFICATION_TOKEN) return; //just ignore it.
+            // // but first, let's make sure the token matches!
+            // if (message.token !== process.env.SLACK_TOKEN) return; //just ignore it.
 
             // if no text was supplied, treat it as a help command
             if (message.text === "" || message.text === "help") {
